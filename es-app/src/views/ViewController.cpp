@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "views/ViewController.h"
 
 #include "animations/Animation.h"
@@ -260,6 +262,12 @@ void ViewController::launch(FileData* game, Vector3f center)
 	{
 		LOG(LogError) << "tried to launch something that isn't a game";
 		return;
+	}
+
+	if (UIModeController::getInstance()->isUIModeKiosk()) {
+		setenv("ES_KIOSK_MODE", "1", 1);
+	} else {
+		unsetenv("ES_KIOSK_MODE");
 	}
 
 	// Hide the current view
