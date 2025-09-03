@@ -34,11 +34,8 @@ GuiMenu::GuiMenu(Window* window) : GuiComponent(window), mMenu(window, "MAIN MEN
 		addEntry("GAME COLLECTION SETTINGS", 0x777777FF, true, [this] { openCollectionSystemSettings(); });
 		addEntry("OTHER SETTINGS", 0x777777FF, true, [this] { openOtherSettings(); });
 		addEntry("CONFIGURE INPUT", 0x777777FF, true, [this] { openConfigInput(); });
-	} else {
-		addEntry("SOUND SETTINGS", 0x777777FF, true, [this] { openSoundSettings(); });
-	}
-
-	addEntry("QUIT", 0x777777FF, true, [this] {openQuitMenu(); });
+		addEntry("QUIT", 0x777777FF, true, [this] {openQuitMenu(); });
+        }
 
 	addChild(&mMenu);
 	addVersionInfo();
