@@ -103,7 +103,8 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, SystemData* system) : Gui
 	}
 
 	// show filtered menu
-	if(!Settings::getInstance()->getBool("ForceDisableFilters"))
+        if(!UIModeController::getInstance()->isUIModeKiosk() &&
+           !Settings::getInstance()->getBool("ForceDisableFilters"))
 	{
 		row.elements.clear();
 		row.addElement(std::make_shared<TextComponent>(mWindow, "FILTER GAMELIST", Font::get(FONT_SIZE_MEDIUM), 0x777777FF), true);
